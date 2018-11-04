@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.stereotype.Service;
+import sun.security.util.Length;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,8 +25,11 @@ public class Member implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
-    @Column
+    @Column(unique = true)
     private String id;
+
+    @Column(length=200)
+    private String token;
 
     @Column
     private String password;

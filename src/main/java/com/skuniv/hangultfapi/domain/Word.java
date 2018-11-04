@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="animal")
+@Table(name="word",uniqueConstraints=@UniqueConstraint(columnNames={"name","category"}))
 public class Word {
 
     @Id
@@ -25,5 +25,10 @@ public class Word {
 
     @Column(name="category")
     private String category;
+
+    public Word(String name, String category){
+        this.name = name;
+        this.category = category;
+    }
 
 }

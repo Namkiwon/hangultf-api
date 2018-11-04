@@ -9,6 +9,7 @@ import lombok.ToString;
 @ToString
 public class MemberDto {
     private String id;
+    private String token;
     private String password;
     private String name;
     private int age;

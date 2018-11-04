@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface WordRepository extends JpaRepository<Word,Long> {
 
-    List<Word> findAll();
+    List<Word> findAllByCategory(String category);
 }
