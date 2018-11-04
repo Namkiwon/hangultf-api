@@ -20,6 +20,18 @@ group = 'com.skuniv'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
+jar {
+    manifest {
+        attributes  'Title': 'hangultf-api', 'Version': version, 'Main-Class': 'com.skuniv.hangultfapi'
+    }
+    archiveName 'MyApp.jar'
+    dependsOn configurations.runtime
+    from {
+        configurations.compile.collect {it.isDirectory()? it: zipTree(it)}
+    }
+}
+
+
 repositories {
     mavenCentral()
 }
